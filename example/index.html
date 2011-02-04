@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="../jQuery-classEvents.js"></script>
+</head>
+<body>
+	<div class="Hello">Hello...</div>
+	<script>
+		$(".Hello").bind("classchange", function() { try { console.log(arguments); } finally { alert(this.className); } }).bind("click", function() {
+			$(this).toggleClass("World");
+		});
+	</script>
+</body>
