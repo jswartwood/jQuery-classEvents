@@ -7,7 +7,7 @@
 (function( $, undefined ) {
 	if ($.classchangeNamespace !== undefined) return;
 	
-	$.classchangeNamespace = false;
+	$.classchangeNamespace = true;
 	
 	function evtName( val ) {
 		return "classchange" + ($.classchangeNamespace ? "." + val : "");
