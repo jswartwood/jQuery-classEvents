@@ -7,8 +7,18 @@
 <body>
 	<div class="Hello">Hello...</div>
 	<script>
-		$(".Hello").bind("classchange", function() { try { console.log(arguments); } finally { alert(this.className); } }).bind("click", function() {
+		$(".Hello").bind("click", function() {
 			$(this).toggleClass("World");
+		}).bind("classchange", function() {
+			alert(this.className);
+		}).one("classchange", function() {
+			$.classchangeNamespace = true;
+		}).bind("classchange.World", function() {
+			try {
+				console.log(arguments);
+			} finally {
+				this.innerHTML = this.className + "!";
+			}
 		});
 	</script>
 </body>
