@@ -13,8 +13,7 @@
 		return "classchange" + ($.classchangeNamespace ? "." + val : "");
 	}
 	
-	var CHANGE_EVT = "classchange"
-		evts = [
+	var evts = [
 			{
 				"name": "addClass",
 				"func": function( value ) {
