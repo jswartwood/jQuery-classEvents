@@ -10,7 +10,7 @@
 	$.classchangeNamespace = true;
 	
 	function evtName( val ) {
-		return "classchange" + ($.classchangeNamespace ? "." + val : "");
+		return "classchange." + val + "!";
 	}
 	
 	var evts = [
