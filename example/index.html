@@ -10,10 +10,9 @@
 		$.classchangeNamespace = false;
 		$(".Hello").bind("click", function() {
 			$(this).toggleClass("World");
-		}).bind("classchange", function() {
+		}).one("classchange.World", function() {
+			$(this).addClass("Goodbye");
 			alert(this.className);
-		}).one("classchange", function() {
-			$.classchangeNamespace = true;
 		}).bind("classchange.World", function() {
 			try {
 				console.log(arguments);

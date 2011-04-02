@@ -5,31 +5,28 @@
  */
 
 (function( $, undefined ) {
-	if ($.classchangeNamespace !== undefined) return;
+	var baseEvt = "classchange";
 	
-	$.classchangeNamespace = true;
-	
-	function evtName( val ) {
-		return "classchange." + val + "!";
+	function triggerEvts( el, val, action ) {
+		var data = { "action": "add" };
+		for (var i = 0, j = val.length; i < j; i++) {
+			data["class"] = val[i];
+			(el = $(el)).triggerHandler(baseEvt + "!", data)
+			el.triggerHandler(baseEvt + "." + val[i] + "!", data);  // Possibly replace "!" with ("." + action)
+		}
 	}
 	
 	var evts = [
 			{
 				"name": "addClass",
 				"func": function( value ) {
-					value = (value || "").split(" ");
-					for (var i = 0, j = value.length; i < j; i++) {
-						$(this).triggerHandler(evtName(value[i]), { "class": value[i], "action": "add" });
-					}
+					triggerEvts(this, (value || "").split(" "), "add");
 				}
 			},
 			{
 				"name": "removeClass",
 				"func": function( value, oldClassName ) {
-					value = (value || oldClassName || "").split(" ");
-					for (var i = 0, j = value.length; i < j; i++) {
-						$(this).triggerHandler(evtName(value[i]), { "class": value[i], "action": "remove" });
-					}
+					triggerEvts(this, (value || oldClassName || "").split(" "), "remove");
 				}
 			},
 			{
@@ -37,10 +34,7 @@
 				"func": function( value, oldClassName ) {
 					var newClassName = this.className;
 					if ($.type(value) !== "string" && oldClassName !== newClassName) {
-						value = (newClassName || oldClassName || "").split(" ");
-						for (var i = 0, j = value.length; i < j; i++) {
-							$(this).triggerHandler(evtName(value[i]), { "class": value[i], "action": oldClassName ? "add" : "remove" });
-						}
+						triggerEvts(this, (newClassName || oldClassName || "").split(" "), oldClassName ? "add" : "remove");
 					}
 				}
 			}
