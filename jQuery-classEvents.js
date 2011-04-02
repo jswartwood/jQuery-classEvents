@@ -48,6 +48,7 @@
 				return this.each(function() {
 					var oldClassName = this.className;
 					oldAction.apply($(this), args);
+					// TODO: handle typeof value === "function"
 					action.func.call(this, value, oldClassName);
 				});
 			};
