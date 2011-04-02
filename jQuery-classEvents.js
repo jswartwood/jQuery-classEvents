@@ -1,7 +1,12 @@
 /*!
  * jQuery classEvents
- * 
+ * https://github.com/jswartwood/jQuery-classEvents
+ *
  * Copyright (c) 2011 Jacob Swartwood
+ * Licensed under the MIT license
+ * http://jacob.swartwood.info/license/
+ *
+ * enjoy.
  */
 
 (function( $, undefined ) {
