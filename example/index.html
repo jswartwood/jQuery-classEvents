@@ -7,7 +7,6 @@
 <body>
 	<div class="Hello">Hello...</div>
 	<script>
-		$.classchangeNamespace = false;
 		$(".Hello").bind("click", function() {
 			$(this).toggleClass("World");
 		}).one("classchange.World", function() {
