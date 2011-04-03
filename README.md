@@ -11,9 +11,10 @@ support may be eased with this pattern.
 ## Detail
 
 The **classchange** event fires whenever classes are changed with jQuery.  **Please note that if
-classes are changed with any other library; this event system will likely fail to trigger.**  The
-**classchange** event will also fire with a namespace equivalent to the class added/removed.  Data
-will also be passed to the event with properties for *action* (add/remove) and *class*.
+classes are changed with standard Javascript or any other library; this event system will likely
+fail to trigger.**  The **classchange** event will also fire with a namespace equivalent to the
+class added/removed.  Data will also be passed to the event with properties for *action*
+(add/remove) and *class*.
 
 ---
 
